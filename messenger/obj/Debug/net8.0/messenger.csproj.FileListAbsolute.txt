@@ -147,3 +147,4 @@
 /home/amir/programming/dotnet/messenger/messenger/obj/Debug/net8.0/messenger.pdb
 /home/amir/programming/dotnet/messenger/messenger/obj/Debug/net8.0/messenger.genruntimeconfig.cache
 /home/amir/programming/dotnet/messenger/messenger/obj/Debug/net8.0/ref/messenger.dll
+/home/amir/programming/dotnet/messenger/messenger/obj/Debug/net8.0/messenger.sourcelink.json

@@ -32,8 +32,8 @@ public class AccountController : ControllerBase
     }
 
     [HttpPatch]
-    public async Task<Account> Update(Account account)
+    public async Task<Account> Update(Account updatedAccount)
     {
-        return await _accountService.Update(account);
+        return await _accountService.Update(updatedAccount);
     }
 }

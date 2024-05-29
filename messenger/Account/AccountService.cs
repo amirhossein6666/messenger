@@ -5,7 +5,7 @@ namespace messenger.Account;
 
 public class AccountService
 {
-    public readonly AccountDbContext _accountDbContext;
+    private readonly AccountDbContext _accountDbContext;
 
     public AccountService(AccountDbContext accountDbContext)
     {
