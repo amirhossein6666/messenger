@@ -8,11 +8,15 @@ using messenger.Group;
 using messenger.Message;
 using messenger.PV;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+    c.ExampleFilters()
+);
+builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<ChannelService>();
 builder.Services.AddScoped<AccountChannelService>();
