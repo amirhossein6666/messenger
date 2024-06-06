@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.ChannelAccountMessage;
+namespace messenger.GroupAccountMessage;
 
-public class ChannelAccountMessageDbContext : DbContext
+public class GroupAccountMessageDbContext: DbContext
 {
     public IConfiguration _config { get; set; }
-    public ChannelAccountMessageDbContext(IConfiguration config)
+    public GroupAccountMessageDbContext(IConfiguration config)
     {
         _config = config;
     }
@@ -16,9 +16,10 @@ public class ChannelAccountMessageDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ChannelAccountMessage>()
-            .HasKey(ac => new { ac.ChannelID, ac.AccountID, ac.MessageID });
+        modelBuilder.Entity<GroupAccountMessage>()
+            .HasKey(ac => new { ac.GroupID, ac.AccountID, ac.MessageID });
     }
 
-    public DbSet<ChannelAccountMessage> ChannelAccountMessage { get; set; }
+    public DbSet<GroupAccountMessage> GroupAccountMessage { get; set; }
+
 }
