@@ -1,4 +1,6 @@
+using messenger.Channel;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace messenger.PV;
 [Route("[controller]")]
@@ -12,6 +14,7 @@ public class PVController
         _pvService = groupService;
     }
     [HttpPost]
+    [SwaggerRequestExample(typeof(PV), typeof(PVExamples))]
     public async Task<PV> Create(PV pv)
     {
         return await _pvService.Create(pv);

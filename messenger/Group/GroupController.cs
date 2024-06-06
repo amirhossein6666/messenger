@@ -1,4 +1,7 @@
+using messenger.Channel;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
+
 namespace messenger.Group;
 
 [Route("[controller]")]
@@ -13,6 +16,7 @@ public class GroupController : ControllerBase
         _groupService = groupService;
     }
     [HttpPost]
+    [SwaggerRequestExample(typeof(Group), typeof(GroupExamples))]
     public async Task<Group> Create(Group group)
     {
         return await _groupService.Create(group);

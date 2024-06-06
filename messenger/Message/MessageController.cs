@@ -1,4 +1,6 @@
+using messenger.Channel;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace messenger.Message;
 
@@ -13,6 +15,7 @@ public class MessageController
         _messageService = messageService;
     }
     [HttpPost]
+    [SwaggerRequestExample(typeof(Message), typeof(MessageExamples))]
     public async Task<Message> Create(Message message)
     {
         return await _messageService.Create(message);

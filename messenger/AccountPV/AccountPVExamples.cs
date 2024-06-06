@@ -7,12 +7,12 @@ public class AccountPVExamples : IMultipleExamplesProvider<AccountPV>
     public IEnumerable<SwaggerExample<AccountPV>> GetExamples()
     {
         yield return SwaggerExample.Create(
-            "first",
+            "test",
             new AccountPV()
             {
-                AccountID = 1,
-                partnerID = 3,
-                PVID = 3
+                AccountID = 3,
+                partnerID = 4,
+                PVID = 2
             }
         );
     }

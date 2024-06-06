@@ -1,4 +1,6 @@
+using messenger.Account;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace messenger.AccountChannel;
 
@@ -14,6 +16,7 @@ public class AccountChannelController: ControllerBase
     }
 
     [HttpPost]
+    [SwaggerRequestExample(typeof(AccountChannel), typeof(AccountChannelExample))]
     public async Task<AccountChannel> Create(AccountChannel accountChannel)
     {
         return await _accountChannelService.Create(accountChannel);
