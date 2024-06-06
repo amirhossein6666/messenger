@@ -17,7 +17,7 @@ public class ChannelAccountMessageDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ChannelAccountMessage>()
-            .HasKey(ac => new { ac.AccountID, ac.ChannelID });
+            .HasKey(ac => new { ac.ChannelID, ac.AccountID, ac.MessageID });
     }
 
     public DbSet<ChannelAccountMessage> ChannelAccountMessage { get; set; }

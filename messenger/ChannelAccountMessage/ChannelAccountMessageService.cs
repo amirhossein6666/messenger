@@ -26,10 +26,7 @@ public class ChannelAccountMessageService
 
     public async Task<ChannelAccountMessage> FindOne(int ChannelID, int AccountID, int MessageID)
     {
-        return await _channelAccountMessageDbContext.ChannelAccountMessage.FromSqlRaw("SELECT * FROM ChannelAccountMessage WHERE ChannelID = @ChannelID AND AccountID = @AccountID And MessageID = @MessageID",
-                new SqlParameter("@ChannelID", ChannelID),
-                new SqlParameter("@AccountID", AccountID),
-                new SqlParameter("@MessageID", MessageID)).FirstOrDefaultAsync();
+        return await _channelAccountMessageDbContext.ChannelAccountMessage.FindAsync(ChannelID, AccountID, MessageID);
     }
 
     public async Task<ChannelAccountMessage> Update(ChannelAccountMessage updatedChannelAccountMessage)
