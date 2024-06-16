@@ -10,6 +10,7 @@ using messenger.Group;
 using messenger.GroupAccountMessage;
 using messenger.GroupMessage;
 using messenger.Message;
+using messenger.MessageReply;
 using messenger.PV;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Filters;
@@ -34,6 +35,7 @@ builder.Services.AddScoped<ChannelAccountMessageService>();
 builder.Services.AddScoped<ChannelMessageService>();
 builder.Services.AddScoped<GroupAccountMessageService>();
 builder.Services.AddScoped<GroupMessageService>();
+builder.Services.AddScoped<MessageReplyService>();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<ChannelDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<AccountDbContext>(options => options.UseSqlServer(connectionString));
@@ -48,6 +50,7 @@ builder.Services.AddDbContext<ChannelAccountMessageDbContext>();
 builder.Services.AddDbContext<ChannelMessageDbContext>();
 builder.Services.AddDbContext<GroupAccountMessageDbContext>();
 builder.Services.AddDbContext<GroupMessageDbContext>();
+builder.Services.AddDbContext<MessageReplyDbContext>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
