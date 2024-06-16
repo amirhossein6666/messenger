@@ -14,6 +14,7 @@ using messenger.MessageReply;
 using messenger.Notification;
 using messenger.PV;
 using messenger.PVAccountMessage;
+using messenger.User;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -40,6 +41,7 @@ builder.Services.AddScoped<GroupMessageService>();
 builder.Services.AddScoped<MessageReplyService>();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<PVAccountMessageService>();
+builder.Services.AddScoped<UserService>();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<ChannelDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<AccountDbContext>(options => options.UseSqlServer(connectionString));
@@ -57,6 +59,7 @@ builder.Services.AddDbContext<GroupMessageDbContext>();
 builder.Services.AddDbContext<MessageReplyDbContext>();
 builder.Services.AddDbContext<NotificationDbContext>();
 builder.Services.AddDbContext<PVAccountMessageDbContext>();
+builder.Services.AddDbContext<UserDbContext>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
