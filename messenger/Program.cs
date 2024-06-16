@@ -8,6 +8,7 @@ using messenger.ChannelAccountMessage;
 using messenger.ChannelMessage;
 using messenger.Group;
 using messenger.GroupAccountMessage;
+using messenger.GroupMessage;
 using messenger.Message;
 using messenger.PV;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ builder.Services.AddScoped<PVService>();
 builder.Services.AddScoped<ChannelAccountMessageService>();
 builder.Services.AddScoped<ChannelMessageService>();
 builder.Services.AddScoped<GroupAccountMessageService>();
+builder.Services.AddScoped<GroupMessageService>();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<ChannelDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<AccountDbContext>(options => options.UseSqlServer(connectionString));
@@ -45,6 +47,7 @@ builder.Services.AddDbContext<PVDbContext>();
 builder.Services.AddDbContext<ChannelAccountMessageDbContext>();
 builder.Services.AddDbContext<ChannelMessageDbContext>();
 builder.Services.AddDbContext<GroupAccountMessageDbContext>();
+builder.Services.AddDbContext<GroupMessageDbContext>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
