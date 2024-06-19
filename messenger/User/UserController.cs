@@ -42,7 +42,7 @@ public class UserController: ControllerBase
         return await _userService.Update(user);
     }
 
-    [HttpPost]
+    [HttpGet]
     [Route("login")]
     public async Task<string> Login(string username, string password)
     {
