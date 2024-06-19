@@ -1,4 +1,6 @@
+using System.IdentityModel.Tokens.Jwt;
 using messenger.PV;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -14,13 +16,15 @@ public class UserController: ControllerBase
         _userService = userService;
     }
     [HttpPost]
+    [Route("SignUP")]
     [SwaggerRequestExample(typeof(User), typeof(UserExamples))]
-    public async Task<User> Create(User user)
+    public async Task<User> SignUp(User user)
     {
         return await _userService.Create(user);
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<List<User>> FindAll()
     {
         return await _userService.FindAll();
@@ -36,5 +40,12 @@ public class UserController: ControllerBase
     public async Task<User> Update(User user)
     {
         return await _userService.Update(user);
+    }
+
+    [HttpPost]
+    [Route("login")]
+    public async Task<string> Login(string username, string password)
+    {
+        return await _userService.Login(username, password);
     }
 }

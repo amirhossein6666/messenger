@@ -151,3 +151,5 @@
 /home/amir/programming/dotnet/messenger/messenger/bin/Debug/net8.0/Scrutor.dll
 /home/amir/programming/dotnet/messenger/messenger/bin/Debug/net8.0/Swashbuckle.AspNetCore.Filters.dll
 /home/amir/programming/dotnet/messenger/messenger/bin/Debug/net8.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+/home/amir/programming/dotnet/messenger/messenger/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/amir/programming/dotnet/messenger/messenger/bin/Debug/net8.0/OneOf.dll
