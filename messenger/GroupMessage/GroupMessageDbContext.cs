@@ -18,6 +18,16 @@ public class GroupMessageDbContext: DbContext
     {
         modelBuilder.Entity<GroupMessage>()
             .HasKey(ac => new { ac.GroupID, ac.MessageID });
+
+        modelBuilder.Entity<GroupMessage>()
+            .HasOne(gm => gm.Group)
+            .WithMany(g => g.GroupMessages)
+            .HasForeignKey(gm => gm.GroupID);
+
+        modelBuilder.Entity<GroupMessage>()
+            .HasOne(gm => gm.Message)
+            .WithMany(m => m.GroupMessages)
+            .HasForeignKey(gm => gm.MessageID);
     }
 
     public DbSet<GroupMessage> GroupMessage { get; set; }

@@ -13,4 +13,7 @@ public class Group
 
     public ICollection<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
 
+    public ICollection<GroupMessage.GroupMessage> GroupMessages { get; set; }
+    public ICollection<Message.Message> Messages { get; set; }
+
 }
