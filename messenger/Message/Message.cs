@@ -11,4 +11,8 @@ public class Message
 
     public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 
+    public ICollection<ChannelMessage.ChannelMessage> ChannelMessages { get; set; }
+
+    public ICollection<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
+
 }

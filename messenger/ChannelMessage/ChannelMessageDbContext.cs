@@ -18,6 +18,16 @@ public class ChannelMessageDbContext : DbContext
     {
         modelBuilder.Entity<ChannelMessage>()
             .HasKey(ac => new { ac.ChannelID, ac.MessageID });
+
+        modelBuilder.Entity<ChannelMessage>()
+            .HasOne(ag => ag.Channel)
+            .WithMany(a => a.ChannelMessages)
+            .HasForeignKey(ag => ag.ChannelID);
+
+        modelBuilder.Entity<ChannelMessage>()
+            .HasOne(ag => ag.Message)
+            .WithMany(a => a.ChannelMessages)
+            .HasForeignKey(ag => ag.MessageID);
     }
 
     public DbSet<ChannelMessage> ChannelMessage { get; set; }

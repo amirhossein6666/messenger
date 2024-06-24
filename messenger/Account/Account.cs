@@ -25,4 +25,7 @@ public class Account
 
     public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 
+    public ICollection<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
+
+
 }

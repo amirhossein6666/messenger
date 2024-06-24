@@ -10,4 +10,7 @@ public class Group
 
     public ICollection<AccountGroup.AccountGroup> AccountGroups { get; set; }
     public ICollection<Account.Account> members { get; set; }
+
+    public ICollection<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
+
 }
