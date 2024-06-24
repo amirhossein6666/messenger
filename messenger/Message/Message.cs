@@ -8,4 +8,7 @@ public class Message
     public int senderID { get; set; }
     public bool isUpdated { get; set; }
     public DateTime? updateDate { get; set; } = DateTime.Now;
+
+    public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
+
 }

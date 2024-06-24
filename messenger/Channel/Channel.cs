@@ -10,4 +10,6 @@ public class Channel
 
     public ICollection<AccountChannel.AccountChannel> AccountChannels { get; set; }
     public ICollection<Account.Account> members { get; set; }
+
+    public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 }

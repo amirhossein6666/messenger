@@ -23,5 +23,6 @@ public class Account
     public ICollection<Account> Contacts { get; set; }
     public ICollection<Account> ContactsOF { get; set; }
 
+    public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 
 }
