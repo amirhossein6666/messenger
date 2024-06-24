@@ -18,6 +18,16 @@ public class AccountGroupDbContext: DbContext
     {
         modelBuilder.Entity<AccountGroup>()
             .HasKey(ac => new { ac.AccountID, ac.GroupID });
+
+        modelBuilder.Entity<AccountGroup>()
+            .HasOne(ag => ag.Account)
+            .WithMany(a => a.AccountGroups)
+            .HasForeignKey(ag => ag.AccountID);
+
+        modelBuilder.Entity<AccountGroup>()
+            .HasOne(ag => ag.Group)
+            .WithMany(a => a.AccountGroups)
+            .HasForeignKey(ag => ag.GroupID);
     }
 
     public DbSet<AccountGroup> AccountGroup { get; set; }

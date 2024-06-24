@@ -7,4 +7,7 @@ public class Channel
     public string? profile { get; set; }
     public string channelID { get; set; }
     public int messagesNumber  { get; set; }
+
+    public ICollection<AccountChannel.AccountChannel> AccountChannels { get; set; }
+    public ICollection<Account.Account> members { get; set; }
 }

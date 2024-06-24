@@ -18,6 +18,16 @@ public class AccountContactDbContext : DbContext
     {
         modelBuilder.Entity<AccountContact>()
             .HasKey(ac => new { ac.AccountID, ac.ContactID });
+
+        modelBuilder.Entity<AccountContact>()
+            .HasOne(ac => ac.Account)
+            .WithMany(a => a.AccountContacts)
+            .HasForeignKey(ac => ac.AccountID);
+
+        modelBuilder.Entity<AccountContact>()
+            .HasOne(ac => ac.Contact)
+            .WithMany(a => a.AccountContacts)
+            .HasForeignKey(ac => ac.ContactID);
     }
 
     public DbSet<AccountContact> AccountContact { get; set; }

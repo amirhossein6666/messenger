@@ -18,6 +18,16 @@ public class AccountChannleDbContext: DbContext
     {
         modelBuilder.Entity<AccountChannel>()
             .HasKey(ac => new { ac.AccountID, ac.ChannelID });
+
+        modelBuilder.Entity<AccountChannel>()
+            .HasOne(ac => ac.Account)
+            .WithMany(a => a.AccountChannels)
+            .HasForeignKey(ag => ag.AccountID);
+
+        modelBuilder.Entity<AccountChannel>()
+            .HasOne(ac => ac.Channel)
+            .WithMany(c => c.AccountChannels)
+            .HasForeignKey(ag => ag.ChannelID);
     }
 
     public DbSet<AccountChannel> AccountChannel { get; set; }

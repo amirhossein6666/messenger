@@ -11,4 +11,17 @@ public class Account
     public DateTime lastSeen { get; set; }
 
     public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }
+    public ICollection<PV.PV> Pvs { get; set; }
+
+    public ICollection<AccountGroup.AccountGroup> AccountGroups { get; set; }
+    public ICollection<Group.Group> Groups { get; set; }
+
+    public ICollection<AccountChannel.AccountChannel> AccountChannels { get; set; }
+    public ICollection<Channel.Channel> Channels { get; set; }
+
+    public ICollection<AccountContact.AccountContact> AccountContacts { get; set; }
+    public ICollection<Account> Contacts { get; set; }
+    public ICollection<Account> ContactsOF { get; set; }
+
+
 }
