@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.GroupAccountMessage;
+namespace  GroupAccountMessage;
 
 public class GroupAccountMessageExamples: IMultipleExamplesProvider<GroupAccountMessage>
 {

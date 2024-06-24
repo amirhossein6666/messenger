@@ -1,4 +1,4 @@
-namespace messenger.PV;
+namespace  PV;
 
 public class PV
 {
@@ -6,4 +6,6 @@ public class PV
     public int personOneID { get; set; }
     public int personTwoID { get; set; }
     public int messagesNumber { get; set; } = 0;
+
+    public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }
 }

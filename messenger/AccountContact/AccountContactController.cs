@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace messenger.AccountContact;
+namespace  AccountContact;
 
 [Route("[controller]")]
 [ApiController]

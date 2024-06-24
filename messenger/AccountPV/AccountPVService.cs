@@ -1,7 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.AccountPV;
+namespace  AccountPV;
 
 public class AccountPVService
 {

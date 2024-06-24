@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.Notification;
+namespace Notification;
 
 public class NotificationExamples: IMultipleExamplesProvider<Notification>
 {

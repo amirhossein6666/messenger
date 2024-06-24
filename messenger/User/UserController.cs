@@ -1,10 +1,10 @@
 using System.IdentityModel.Tokens.Jwt;
-using messenger.PV;
+using PV;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.User;
+namespace  User;
 [Route("[controller]")]
 [ApiController]
 public class UserController: ControllerBase

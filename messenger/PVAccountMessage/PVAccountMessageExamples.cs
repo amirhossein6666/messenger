@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.PVAccountMessage;
+namespace  PVAccountMessage;
 
 public class PVAccountMessageExamples: IMultipleExamplesProvider<PVAccountMessage>
 {

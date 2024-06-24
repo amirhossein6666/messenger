@@ -1,4 +1,4 @@
-namespace messenger.User;
+namespace User;
 
 public class User
 {

@@ -1,4 +1,4 @@
-namespace messenger.Message;
+namespace  Message;
 
 public class Message
 {

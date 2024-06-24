@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.Group;
+namespace  Group;
 
 public class GroupService
 {

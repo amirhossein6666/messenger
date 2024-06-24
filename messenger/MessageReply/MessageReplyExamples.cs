@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.MessageReply;
+namespace  MessageReply;
 
 public class MessageReplyExamples : IMultipleExamplesProvider<MessageReply>
 {

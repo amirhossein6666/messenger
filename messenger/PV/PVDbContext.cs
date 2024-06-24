@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.PV;
+namespace  PV;
 
 public class PVDbContext: DbContext
 {

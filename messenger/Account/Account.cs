@@ -1,4 +1,4 @@
-namespace messenger.Account;
+namespace Account;
 
 public class Account
 {
@@ -9,4 +9,6 @@ public class Account
     public int userID { get; set; }
     public bool? isOnline { get; set; }
     public DateTime lastSeen { get; set; }
+
+    public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }
 }

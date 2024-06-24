@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.PVAccountMessage;
+namespace  PVAccountMessage;
 
 public class PVAccountMessageDbContext: DbContext
 {

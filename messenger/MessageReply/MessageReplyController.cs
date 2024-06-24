@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.MessageReply;
+namespace MessageReply;
 [Route("[controller]")]
 public class MessageReplyController: ControllerBase
 {

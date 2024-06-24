@@ -1,4 +1,4 @@
-namespace messenger.AccountGroup;
+namespace  AccountGroup;
 
 public class AccountGroup
 {

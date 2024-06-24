@@ -1,4 +1,4 @@
-namespace messenger.AccountContact;
+namespace  AccountContact;
 
 public class AccountContact
 {

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace messenger.ChannelAccountMessage;
+namespace  ChannelAccountMessage;
 
 public class ChannelAccountMessage
 {

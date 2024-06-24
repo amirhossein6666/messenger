@@ -1,7 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.ChannelAccountMessage;
+namespace  ChannelAccountMessage;
 
 public class ChannelAccountMessageService
 {

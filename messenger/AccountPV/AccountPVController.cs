@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.AccountPV;
+namespace  AccountPV;
 [Route("[controller]")]
 [ApiController]
 public class AccountPVController: ControllerBase

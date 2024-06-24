@@ -1,4 +1,4 @@
-namespace messenger.GroupMessage;
+namespace  GroupMessage;
 
 public class GroupMessage
 {

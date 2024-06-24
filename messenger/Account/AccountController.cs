@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.Account;
+namespace  Account;
 
 [Route("[controller]")]
 [ApiController]

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.Channel;
+namespace  Channel;
 
 public class ChannelDbContext: DbContext
 {

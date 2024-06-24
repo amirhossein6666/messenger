@@ -1,4 +1,4 @@
-namespace messenger.PVAccountMessage;
+namespace  PVAccountMessage;
 
 public class PVAccountMessage
 {

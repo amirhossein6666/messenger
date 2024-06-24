@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OneOf;
 
-namespace messenger.User;
+namespace User;
 
 public class UserService
 {

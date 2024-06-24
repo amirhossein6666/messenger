@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.Account;
+namespace  Account;
 
 public class AccountService
 {

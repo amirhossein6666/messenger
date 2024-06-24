@@ -1,8 +1,8 @@
-using messenger.GroupAccountMessage;
+using  GroupAccountMessage;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.PVAccountMessage;
+namespace  PVAccountMessage;
 [Route("[controller]")]
 [ApiController]
 public class PVAccountMessageController: ControllerBase

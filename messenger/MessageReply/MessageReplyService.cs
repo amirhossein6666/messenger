@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.MessageReply;
+namespace  MessageReply;
 
 public class MessageReplyService
 {

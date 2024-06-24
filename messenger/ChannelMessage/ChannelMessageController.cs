@@ -1,8 +1,8 @@
-using messenger.AccountGroup;
+using  AccountGroup;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.ChannelMessage;
+namespace  ChannelMessage;
 [Route("[controller]")]
 [ApiController]
 public class ChannelMessageController: ControllerBase

@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.AccountChannel;
+namespace  AccountChannel;
 
 public class AccountChannelExample: IMultipleExamplesProvider<AccountChannel>
 {

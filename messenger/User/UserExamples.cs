@@ -1,6 +1,6 @@
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.User;
+namespace  User;
 
 public class UserExamples: IMultipleExamplesProvider<User>
 {

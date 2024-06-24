@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.Notification;
+namespace  Notification;
 
 public class NotificationDbContext : DbContext
 {

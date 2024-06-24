@@ -1,8 +1,8 @@
-using messenger.Message;
+using  Message;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.Notification;
+namespace  Notification;
 
 
 [Route("[controller]")]

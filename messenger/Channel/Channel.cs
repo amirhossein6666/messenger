@@ -1,4 +1,4 @@
-namespace messenger.Channel;
+namespace  Channel;
 
 public class Channel
 {

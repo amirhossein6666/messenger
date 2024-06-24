@@ -1,4 +1,4 @@
-namespace messenger.MessageReply;
+namespace  MessageReply;
 
 public class MessageReply
 {

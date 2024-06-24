@@ -1,8 +1,8 @@
-using messenger.Channel;
+using  Channel;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.PV;
+namespace PV;
 [Route("[controller]")]
 [ApiController]
 public class PVController

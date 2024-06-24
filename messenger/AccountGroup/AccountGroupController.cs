@@ -1,8 +1,8 @@
-using messenger.Account;
+using Account;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.AccountGroup;
+namespace  AccountGroup;
 [Route("[controller]")]
 [ApiController]
 public class AccountGroupController : ControllerBase

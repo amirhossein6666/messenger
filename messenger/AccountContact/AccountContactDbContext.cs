@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.AccountContact;
+namespace  AccountContact;
 
 public class AccountContactDbContext : DbContext
 {

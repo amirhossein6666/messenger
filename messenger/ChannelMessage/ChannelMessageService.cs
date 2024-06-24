@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.ChannelMessage;
+namespace  ChannelMessage;
 
 public class ChannelMessageService
 {

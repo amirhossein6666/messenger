@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.Account
+namespace  Account
 {
     public class AccountDbContext : DbContext
     {

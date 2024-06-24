@@ -1,4 +1,4 @@
-namespace messenger.Notification;
+namespace  Notification;
 
 public class Notification
 {

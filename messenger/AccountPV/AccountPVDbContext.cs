@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.AccountPV;
+namespace  AccountPV;
 
 public class AccountPVDbContext : DbContext
 {
@@ -18,6 +18,16 @@ public class AccountPVDbContext : DbContext
     {
         modelBuilder.Entity<AccountPV>()
             .HasKey(ac => new { ac.AccountID, ac.PVID });
+
+        modelBuilder.Entity<AccountPV>()
+            .HasOne(ap => ap.Pv)
+            .WithMany(p => p.AccountPvs)
+            .HasForeignKey(ap => ap.PVID);
+
+        modelBuilder.Entity<AccountPV>()
+            .HasOne(ap => ap.Account)
+            .WithMany(a => a.AccountPvs)
+            .HasForeignKey(ap => ap.AccountID);
     }
 
     public DbSet<AccountPV> AccountPV { get; set; }

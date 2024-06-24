@@ -1,4 +1,4 @@
-namespace messenger.Group;
+namespace  Group;
 using Microsoft.EntityFrameworkCore;
 
 
