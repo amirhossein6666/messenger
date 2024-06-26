@@ -66,7 +66,7 @@ builder.Services.AddScoped<UserService>();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<ChannelDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<AccountDbContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDbContext<AccountChannleDbContext>();
+builder.Services.AddDbContext<AccountChannelDbContext>();
 builder.Services.AddDbContext<AccountContactDbContext>();
 builder.Services.AddDbContext<AccountGroupDbContext>();
 builder.Services.AddDbContext<GroupDbContext>();

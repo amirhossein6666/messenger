@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace  AccountChannel;
 
-public class AccountChannleDbContext: DbContext
+public class AccountChannelDbContext: DbContext
 {
     public IConfiguration _config { get; set; }
-    public AccountChannleDbContext(IConfiguration config)
+    public AccountChannelDbContext(IConfiguration config)
     {
         _config = config;
     }

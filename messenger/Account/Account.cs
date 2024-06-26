@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Account;
 
 public class Account
@@ -18,8 +20,8 @@ public class Account
 
     public ICollection<AccountChannel.AccountChannel> AccountChannels { get; set; }
     public ICollection<Channel.Channel> Channels { get; set; }
-
-    public ICollection<AccountContact.AccountContact> AccountContacts { get; set; }
+    
+    public ICollection<AccountContact.AccountContact> AccountContacts { get; set; } = new List<AccountContact.AccountContact>();
     public ICollection<Account> Contacts { get; set; }
     public ICollection<Account> ContactsOF { get; set; }
 

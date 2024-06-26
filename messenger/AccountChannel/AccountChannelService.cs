@@ -4,11 +4,11 @@ namespace  AccountChannel;
 
 public class AccountChannelService
 {
-    private readonly AccountChannleDbContext _accountChannelDbContext;
+    private readonly AccountChannelDbContext _accountChannelDbContext;
 
-    public AccountChannelService(AccountChannleDbContext accountChannleDbContext)
+    public AccountChannelService(AccountChannelDbContext accountChannelDbContext)
     {
-        _accountChannelDbContext = accountChannleDbContext;
+        _accountChannelDbContext = accountChannelDbContext;
     }
 
     public async Task<AccountChannel> Create(AccountChannel accountChannel)
