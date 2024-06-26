@@ -1,3 +1,5 @@
+using messenger.PVMessage;
+
 namespace  Message;
 
 public class Message
@@ -18,8 +20,9 @@ public class Message
 
     public ICollection<GroupMessage.GroupMessage> GroupMessages { get; set; }
 
-
     public ICollection<PVAccountMessage.PVAccountMessage> PvAccountMessages { get; set; }
+
+    public ICollection<PVMessage> PvMessages { get; set; }
 
 
 }

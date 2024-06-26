@@ -1,3 +1,5 @@
+using messenger.PVMessage;
+
 namespace  PV;
 
 public class PV
@@ -10,5 +12,7 @@ public class PV
     public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }
 
     public ICollection<PVAccountMessage.PVAccountMessage> PvAccountMessages { get; set; }
+
+    public ICollection<PVMessage> PvMessages { get; set; }
 
 }
