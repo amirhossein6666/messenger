@@ -11,7 +11,7 @@ public class MessageReplyExamples : IMultipleExamplesProvider<MessageReply>
             new MessageReply()
             {
                 MessageID = 1,
-                replyID = 1,
+                ReplyID = 1,
             }
         );
     }

@@ -18,6 +18,21 @@ public class PVAccountMessageDbContext: DbContext
     {
         modelBuilder.Entity<PVAccountMessage>()
             .HasKey(ac => new { ac.PVID, ac.AccountID, ac.MessageID });
+
+        modelBuilder.Entity<PVAccountMessage>()
+            .HasOne(pam => pam.PV)
+            .WithMany(c => c.PvAccountMessages)
+            .HasForeignKey(pam => pam.PVID);
+
+        modelBuilder.Entity<PVAccountMessage>()
+            .HasOne(pam => pam.Account)
+            .WithMany(c => c.PvAccountMessages)
+            .HasForeignKey(pam => pam.AccountID);
+
+        modelBuilder.Entity<PVAccountMessage>()
+            .HasOne(pam => pam.Message)
+            .WithMany(c => c.PvAccountMessages)
+            .HasForeignKey(pam => pam.MessageID);
     }
 
     public DbSet<PVAccountMessage> PvAccountMessage { get; set; }

@@ -17,7 +17,17 @@ public class MessageReplyDbContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<MessageReply>()
-            .HasKey(ac => new { ac.MessageID, ac.replyID });
+            .HasKey(ac => new { ac.MessageID, ac.ReplyID });
+
+        modelBuilder.Entity<MessageReply>()
+            .HasOne(mr => mr.Message)
+            .WithMany(m => m.MessageReplies)
+            .HasForeignKey(mr => mr.MessageID);
+
+        modelBuilder.Entity<MessageReply>()
+            .HasOne(mr => mr.Reply)
+            .WithMany(m => m.MessageReplies)
+            .HasForeignKey(mr => mr.ReplyID);
     }
 
 

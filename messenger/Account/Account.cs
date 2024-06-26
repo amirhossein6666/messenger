@@ -27,5 +27,6 @@ public class Account
 
     public ICollection<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
 
+    public ICollection<PVAccountMessage.PVAccountMessage> PvAccountMessages { get; set; }
 
 }

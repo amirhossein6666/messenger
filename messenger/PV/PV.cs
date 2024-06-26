@@ -8,4 +8,7 @@ public class PV
     public int messagesNumber { get; set; } = 0;
 
     public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }
+
+    public ICollection<PVAccountMessage.PVAccountMessage> PvAccountMessages { get; set; }
+
 }
