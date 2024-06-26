@@ -8,6 +8,7 @@ public class Message
     public int senderID { get; set; }
     public bool isUpdated { get; set; }
     public DateTime? updateDate { get; set; } = DateTime.Now;
+    public int ReplyOF { get; set; }
 
     public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 
@@ -17,9 +18,6 @@ public class Message
 
     public ICollection<GroupMessage.GroupMessage> GroupMessages { get; set; }
 
-    public ICollection<MessageReply.MessageReply> MessageReplies { get; set; }
-    public ICollection<Message> Replies { get; set; }
-    public ICollection<Message> ReplyOf { get; set; } // the message that current message is its reply
 
     public ICollection<PVAccountMessage.PVAccountMessage> PvAccountMessages { get; set; }
 
