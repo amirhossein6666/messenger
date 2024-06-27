@@ -46,16 +46,20 @@ public class AppDbContext: DbContext
         modelBuilder.Entity<AccountPV.AccountPV>()
             .HasKey(e => new { e.AccountID, e.PVID });
 
-        // determine keys of AccountPV
+        // determine keys of ChannelAccountMessage
         modelBuilder.Entity<ChannelAccountMessage.ChannelAccountMessage>()
             .HasKey(e => new { e.ChannelID, e.AccountID, e.MessageID });
 
-        // determine keys of AccountPV
+        // determine keys of ChannelMessage
         modelBuilder.Entity<ChannelMessage.ChannelMessage>()
             .HasKey(e => new { e.ChannelID, e.MessageID });
 
-        // determine keys of AccountPV
+        // determine keys of GroupAccountMessage
         modelBuilder.Entity<GroupAccountMessage.GroupAccountMessage>()
+            .HasKey(e => new { e.GroupID, e.AccountID, e.MessageID });
+            
+        // determine keys of GroupMessage
+        modelBuilder.Entity<GroupMessage.GroupMessage>()
             .HasKey(e => new { e.GroupID, e.MessageID });
 
 
