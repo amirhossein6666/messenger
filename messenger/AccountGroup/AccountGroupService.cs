@@ -14,24 +14,24 @@ public class AccountGroupService
 
     public async Task<AccountGroup> Create(AccountGroup accountGroup)
     {
-        _appDbContext.AccountGroup.Add(accountGroup);
+        _appDbContext.AccountGroups.Add(accountGroup);
         await _appDbContext.SaveChangesAsync();
         return accountGroup;
     }
 
     public async Task<List<AccountGroup>> FindAll()
     {
-        return await _appDbContext.AccountGroup.ToListAsync();
+        return await _appDbContext.AccountGroups.ToListAsync();
     }
 
     public async Task<AccountGroup> FindOne(int AccountID, int GroupID)
     {
-        return await _appDbContext.AccountGroup.FindAsync(AccountID, GroupID);
+        return await _appDbContext.AccountGroups.FindAsync(AccountID, GroupID);
     }
 
     public async Task<AccountGroup> Update(AccountGroup updatedAccountGroup)
     {
-        _appDbContext.AccountGroup.Update(updatedAccountGroup);
+        _appDbContext.AccountGroups.Update(updatedAccountGroup);
         await _appDbContext.SaveChangesAsync();
         return updatedAccountGroup;
     }

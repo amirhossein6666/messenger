@@ -15,24 +15,24 @@ public class AccountPVService
 
     public async Task<AccountPV> Create(AccountPV accountPV)
     {
-        _appDbContext.AccountPV.Add(accountPV);
+        _appDbContext.AccountPVs.Add(accountPV);
         await _appDbContext.SaveChangesAsync();
         return accountPV;
     }
 
     public async Task<List<AccountPV>> FindAll()
     {
-        return await _appDbContext.AccountPV.ToListAsync();
+        return await _appDbContext.AccountPVs.ToListAsync();
     }
 
     public async Task<AccountPV> FindOne(int AccountID, int PVID)
     {
-        return await _appDbContext.AccountPV.FindAsync(AccountID, PVID);
+        return await _appDbContext.AccountPVs.FindAsync(AccountID, PVID);
     }
 
     public async Task<AccountPV> Update(AccountPV updatedaccountPV)
     {
-        _appDbContext.AccountPV.Update(updatedaccountPV);
+        _appDbContext.AccountPVs.Update(updatedaccountPV);
         await _appDbContext.SaveChangesAsync();
         return updatedaccountPV;
     }

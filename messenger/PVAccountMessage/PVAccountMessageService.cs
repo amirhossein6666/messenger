@@ -14,24 +14,24 @@ public class PVAccountMessageService
 
     public async Task<PVAccountMessage> Create(PVAccountMessage pvAccountMessage)
     {
-        _appDbContext.PVAccountMessage.Add(pvAccountMessage);
+        _appDbContext.PVAccountMessages.Add(pvAccountMessage);
         await _appDbContext.SaveChangesAsync();
         return pvAccountMessage;
     }
 
     public async Task<List<PVAccountMessage>> FindAll()
     {
-        return await _appDbContext.PVAccountMessage.ToListAsync();
+        return await _appDbContext.PVAccountMessages.ToListAsync();
     }
 
     public async Task<PVAccountMessage> FindOne(int PVID, int AccountID, int MessageID)
     {
-        return await _appDbContext.PVAccountMessage.FindAsync(PVID, AccountID, MessageID);
+        return await _appDbContext.PVAccountMessages.FindAsync(PVID, AccountID, MessageID);
     }
 
     public async Task<PVAccountMessage> Update(PVAccountMessage updatedPVAccountMessage)
     {
-        _appDbContext.PVAccountMessage.Update(updatedPVAccountMessage);
+        _appDbContext.PVAccountMessages.Update(updatedPVAccountMessage);
         await _appDbContext.SaveChangesAsync();
         return updatedPVAccountMessage;
     }

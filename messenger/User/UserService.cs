@@ -22,31 +22,31 @@ public class UserService
 
     public async Task<User> Create(User user)
     {
-        _appDbContext.User.Add(user);
+        _appDbContext.Users.Add(user);
         await _appDbContext.SaveChangesAsync();
         return user;
     }
 
     public async Task<List<User>> FindAll()
     {
-        return await _appDbContext.User.ToListAsync();
+        return await _appDbContext.Users.ToListAsync();
     }
 
     public async Task<User> FindOne(int ID)
     {
-        return await _appDbContext.User.FindAsync(ID);
+        return await _appDbContext.Users.FindAsync(ID);
     }
 
     public async Task<User> Update(User updateUser)
     {
-        _appDbContext.User.Update(updateUser);
+        _appDbContext.Users.Update(updateUser);
         await _appDbContext.SaveChangesAsync();
         return updateUser;
     }
 
     public async Task<string> Login(string username, string password)
     {
-        var user = _appDbContext.User.FromSqlInterpolated($"SELECT * FROM [User] WHERE Username = {username}")
+        var user = _appDbContext.Users.FromSqlInterpolated($"SELECT * FROM [User] WHERE Username = {username}")
             .AsEnumerable().FirstOrDefault();
         if (user != null)
         {

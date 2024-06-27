@@ -14,19 +14,19 @@ public class GroupMessageService
 
     public async Task<GroupMessage> Create(GroupMessage groupMessage)
     {
-        _appDbContext.GroupMessage.Add(groupMessage);
+        _appDbContext.GroupMessages.Add(groupMessage);
         await _appDbContext.SaveChangesAsync();
         return groupMessage;
     }
 
     public async Task<List<GroupMessage>> FindAll()
     {
-        return await _appDbContext.GroupMessage.ToListAsync();
+        return await _appDbContext.GroupMessages.ToListAsync();
     }
 
     public async Task<GroupMessage> FindOne(int GroupID, int MessageID)
     {
-        return await _appDbContext.GroupMessage.FindAsync(GroupID, MessageID);
+        return await _appDbContext.GroupMessages.FindAsync(GroupID, MessageID);
     }
 
 }

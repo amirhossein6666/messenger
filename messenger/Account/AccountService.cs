@@ -15,24 +15,24 @@ public class AccountService
 
     public async Task<Account> Create(Account account)
     {
-        _appDbContext.Account.Add(account);
+        _appDbContext.Accounts.Add(account);
         await _appDbContext.SaveChangesAsync();
         return account;
     }
 
     public async Task<List<Account>> FindAll()
     {
-        return await _appDbContext.Account.ToListAsync();
+        return await _appDbContext.Accounts.ToListAsync();
     }
 
     public async Task<Account> FindOne(int ID)
     {
-        return await _appDbContext.Account.FindAsync(ID);
+        return await _appDbContext.Accounts.FindAsync(ID);
     }
 
     public async Task<Account> Update(Account updatedAccount)
     {
-        _appDbContext.Account.Update(updatedAccount);
+        _appDbContext.Accounts.Update(updatedAccount);
         await _appDbContext.SaveChangesAsync();
         return updatedAccount;
     }

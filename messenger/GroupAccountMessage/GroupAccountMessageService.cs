@@ -14,24 +14,24 @@ public class GroupAccountMessageService
 
     public async Task<GroupAccountMessage> Create(GroupAccountMessage groupAccountMessage)
     {
-        _appDbContext.GroupAccountMessage.Add(groupAccountMessage);
+        _appDbContext.GroupAccountMessages.Add(groupAccountMessage);
         await _appDbContext.SaveChangesAsync();
         return groupAccountMessage;
     }
 
     public async Task<List<GroupAccountMessage>> FindAll()
     {
-        return await _appDbContext.GroupAccountMessage.ToListAsync();
+        return await _appDbContext.GroupAccountMessages.ToListAsync();
     }
 
     public async Task<GroupAccountMessage> FindOne(int GroupID, int AccountID, int MessageID)
     {
-        return await _appDbContext.GroupAccountMessage.FindAsync(GroupID, AccountID, MessageID);
+        return await _appDbContext.GroupAccountMessages.FindAsync(GroupID, AccountID, MessageID);
     }
 
     public async Task<GroupAccountMessage> Update(GroupAccountMessage updatedGroupAccountMEssage)
     {
-        _appDbContext.GroupAccountMessage.Update(updatedGroupAccountMEssage);
+        _appDbContext.GroupAccountMessages.Update(updatedGroupAccountMEssage);
         await _appDbContext.SaveChangesAsync();
         return updatedGroupAccountMEssage;
     }

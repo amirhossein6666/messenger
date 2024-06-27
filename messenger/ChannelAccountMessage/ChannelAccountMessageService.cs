@@ -15,24 +15,24 @@ public class ChannelAccountMessageService
 
     public async Task<ChannelAccountMessage> Create(ChannelAccountMessage channelAccountMessage)
     {
-        _appDbContext.ChannelAccountMessage.Add(channelAccountMessage);
+        _appDbContext.ChannelAccountMessages.Add(channelAccountMessage);
         await _appDbContext.SaveChangesAsync();
         return channelAccountMessage;
     }
 
     public async Task<List<ChannelAccountMessage>> FindAll()
     {
-        return await _appDbContext.ChannelAccountMessage.ToListAsync();
+        return await _appDbContext.ChannelAccountMessages.ToListAsync();
     }
 
     public async Task<ChannelAccountMessage> FindOne(int ChannelID, int AccountID, int MessageID)
     {
-        return await _appDbContext.ChannelAccountMessage.FindAsync(ChannelID, AccountID, MessageID);
+        return await _appDbContext.ChannelAccountMessages.FindAsync(ChannelID, AccountID, MessageID);
     }
 
     public async Task<ChannelAccountMessage> Update(ChannelAccountMessage updatedChannelAccountMessage)
     {
-        _appDbContext.ChannelAccountMessage.Update(updatedChannelAccountMessage);
+        _appDbContext.ChannelAccountMessages.Update(updatedChannelAccountMessage);
         await _appDbContext.SaveChangesAsync();
         return updatedChannelAccountMessage;
     }

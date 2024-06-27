@@ -14,18 +14,18 @@ public class ChannelMessageService
 
     public async Task<ChannelMessage> Create(ChannelMessage channelMessage)
     {
-        _appDbContext.ChannelMessage.Add(channelMessage);
+        _appDbContext.ChannelMessages.Add(channelMessage);
         await _appDbContext.SaveChangesAsync();
         return channelMessage;
     }
 
     public async Task<List<ChannelMessage>> FindAll()
     {
-        return await _appDbContext.ChannelMessage.ToListAsync();
+        return await _appDbContext.ChannelMessages.ToListAsync();
     }
 
     public async Task<ChannelMessage> FindOne(int ChannelID, int MessageID)
     {
-        return await _appDbContext.ChannelMessage.FindAsync(ChannelID, MessageID);
+        return await _appDbContext.ChannelMessages.FindAsync(ChannelID, MessageID);
     }
 }

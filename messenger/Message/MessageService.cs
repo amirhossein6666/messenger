@@ -14,24 +14,24 @@ public class MessageService
 
     public async Task<Message> Create(Message message)
     {
-        _appDbContext.Message.Add(message);
+        _appDbContext.Messages.Add(message);
         await _appDbContext.SaveChangesAsync();
         return message;
     }
 
     public async Task<List<Message>> FindAll()
     {
-        return await _appDbContext.Message.ToListAsync();
+        return await _appDbContext.Messages.ToListAsync();
     }
 
     public async Task<Message> FindOne(int ID)
     {
-        return await _appDbContext.Message.FindAsync(ID);
+        return await _appDbContext.Messages.FindAsync(ID);
     }
 
     public async Task<Message> Update(Message updatedMessage)
     {
-        _appDbContext.Message.Update(updatedMessage);
+        _appDbContext.Messages.Update(updatedMessage);
         await _appDbContext.SaveChangesAsync();
         return updatedMessage;
     }

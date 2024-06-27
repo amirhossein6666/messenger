@@ -13,18 +13,18 @@ public class PVmessageService
 
     public async Task<PVMessage> Create(PVMessage pvMessage)
     {
-        _appDbContext.PVMessage.Add(pvMessage);
+        _appDbContext.PVMessages.Add(pvMessage);
         await _appDbContext.SaveChangesAsync();
         return pvMessage;
     }
 
     public async Task<List<PVMessage>> FindAll()
     {
-        return await _appDbContext.PVMessage.ToListAsync();
+        return await _appDbContext.PVMessages.ToListAsync();
     }
 
     public async Task<PVMessage> FindOne(int PVID, int MessageID)
     {
-        return await _appDbContext.PVMessage.FindAsync(PVID, MessageID);
+        return await _appDbContext.PVMessages.FindAsync(PVID, MessageID);
     }
 }

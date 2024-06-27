@@ -37,6 +37,7 @@ public class AppDbContext: DbContext
         // determine keys of AccountChannel
         modelBuilder.Entity<AccountChannel.AccountChannel>()
             .HasKey(e => new { e.AccountID, e.ChannelID });
+        // Additional configurations
 
         // determine keys of AccountGroup
         modelBuilder.Entity<AccountGroup.AccountGroup>()
@@ -75,22 +76,22 @@ public class AppDbContext: DbContext
     }
 
 
-    public DbSet<Account.Account> Account { get; set; }
-    public DbSet<AccountChannel.AccountChannel> AccountChannel { get; set; }
-    public DbSet<AccountContact.AccountContact> AccountContact { get; set; }
-    public DbSet<AccountGroup.AccountGroup> AccountGroup { get; set; }
-    public DbSet<AccountPV.AccountPV> AccountPV { get; set; }
-    public DbSet<Channel.Channel> Channel { get; set; }
-    public DbSet<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessage { get; set; }
-    public DbSet<ChannelMessage.ChannelMessage> ChannelMessage { get; set; }
-    public DbSet<Group.Group> Group { get; set; }
-    public DbSet<GroupAccountMessage.GroupAccountMessage> GroupAccountMessage { get; set; }
-    public DbSet<GroupMessage.GroupMessage> GroupMessage { get; set; }
-    public DbSet<Message.Message> Message { get; set; }
-    public DbSet<Notification.Notification> Notification { get; set; }
-    public DbSet<PV.PV> PV { get; set; }
-    public DbSet<PVAccountMessage.PVAccountMessage> PVAccountMessage { get; set; }
-    public DbSet<PVMessage.PVMessage> PVMessage { get; set; }
-    public DbSet<User.User> User { get; set; }
+    public DbSet<Account.Account> Accounts { get; set; }
+    public DbSet<AccountChannel.AccountChannel> AccountChannels { get; set; }
+    public DbSet<AccountContact.AccountContact> AccountContacts { get; set; }
+    public DbSet<AccountGroup.AccountGroup> AccountGroups { get; set; }
+    public DbSet<AccountPV.AccountPV> AccountPVs { get; set; }
+    public DbSet<Channel.Channel> Channels { get; set; }
+    public DbSet<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
+    public DbSet<ChannelMessage.ChannelMessage> ChannelMessages { get; set; }
+    public DbSet<Group.Group> Groups { get; set; }
+    public DbSet<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
+    public DbSet<GroupMessage.GroupMessage> GroupMessages { get; set; }
+    public DbSet<Message.Message> Messages { get; set; }
+    public DbSet<Notification.Notification> Notifications { get; set; }
+    public DbSet<PV.PV> PVs { get; set; }
+    public DbSet<PVAccountMessage.PVAccountMessage> PVAccountMessages { get; set; }
+    public DbSet<PVMessage.PVMessage> PVMessages { get; set; }
+    public DbSet<User.User> Users { get; set; }
 
 }
