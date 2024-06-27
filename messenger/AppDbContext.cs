@@ -57,10 +57,18 @@ public class AppDbContext: DbContext
         // determine keys of GroupAccountMessage
         modelBuilder.Entity<GroupAccountMessage.GroupAccountMessage>()
             .HasKey(e => new { e.GroupID, e.AccountID, e.MessageID });
-            
+
         // determine keys of GroupMessage
         modelBuilder.Entity<GroupMessage.GroupMessage>()
             .HasKey(e => new { e.GroupID, e.MessageID });
+
+        // determine keys of GroupMessage
+        modelBuilder.Entity<PVAccountMessage.PVAccountMessage>()
+            .HasKey(e => new { e.PVID, e.AccountID, e.MessageID });
+
+        // determine keys of GroupMessage
+        modelBuilder.Entity<PVMessage.PVMessage>()
+            .HasKey(e => new { e.PVID, e.MessageID });
 
 
 
