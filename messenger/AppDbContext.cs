@@ -50,6 +50,10 @@ public class AppDbContext: DbContext
         modelBuilder.Entity<ChannelAccountMessage.ChannelAccountMessage>()
             .HasKey(e => new { e.ChannelID, e.AccountID, e.MessageID });
 
+        // determine keys of AccountPV
+        modelBuilder.Entity<ChannelMessage.ChannelMessage>()
+            .HasKey(e => new { e.ChannelID, e.MessageID });
+
 
 
     }
