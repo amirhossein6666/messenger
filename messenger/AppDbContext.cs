@@ -16,6 +16,25 @@ public class AppDbContext: DbContext
         optionsBuilder.UseSqlServer(_config.GetConnectionString("DatabaseConnection"));
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<AccountContact.AccountContact>()
+            .HasKey(e => new { e.AccountID, e.ContactID });
+
+        modelBuilder.Entity<AccountContact.AccountContact>()
+            .HasOne(e => e.Account)
+            .WithMany(s => s.Contacts)
+            .HasForeignKey(e => e.AccountID);
+
+        modelBuilder.Entity<AccountContact.AccountContact>()
+            .HasOne(e => e.Contact)
+            .WithMany(s => s.ContactedBy)
+            .HasForeignKey(e => e.ContactID);
+
+        modelBuilder.Entity<AccountChannel.AccountChannel>().HasKey(e => new { e.AccountID, e.ChannelID });
+    }
+
 
     public DbSet<Account.Account> Account { get; set; }
     public DbSet<AccountChannel.AccountChannel> AccountChannel { get; set; }

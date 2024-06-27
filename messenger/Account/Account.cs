@@ -21,9 +21,9 @@ public class Account
     public ICollection<AccountChannel.AccountChannel> AccountChannels { get; set; }
     public ICollection<Channel.Channel> Channels { get; set; }
     
-    public ICollection<AccountContact.AccountContact> AccountContacts { get; set; } = new List<AccountContact.AccountContact>();
-    public ICollection<Account> Contacts { get; set; }
-    public ICollection<Account> ContactsOF { get; set; }
+    public ICollection<AccountContact.AccountContact> Contacts { get; set; } = new List<AccountContact.AccountContact>();
+    public ICollection<AccountContact.AccountContact> ContactedBy { get; set; }
+
 
     public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 

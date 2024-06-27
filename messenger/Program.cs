@@ -17,6 +17,7 @@ using ChannelAccountMessage;
 using Group;
 using GroupAccountMessage;
 using Message;
+using messenger;
 using Notification;
 using User;
 
@@ -64,6 +65,7 @@ builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<PVAccountMessageService>();
 builder.Services.AddScoped<UserService>();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
+builder.Services.AddDbContext<AppDbContext>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
