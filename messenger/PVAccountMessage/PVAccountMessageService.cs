@@ -1,37 +1,38 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  PVAccountMessage;
 
 public class PVAccountMessageService
 {
-    private readonly PVAccountMessageDbContext _pvAccountMessageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public PVAccountMessageService(PVAccountMessageDbContext pvAccountMessageDbContext)
+    public PVAccountMessageService(AppDbContext appDbContext)
     {
-        _pvAccountMessageDbContext = pvAccountMessageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<PVAccountMessage> Create(PVAccountMessage pvAccountMessage)
     {
-        _pvAccountMessageDbContext.PvAccountMessage.Add(pvAccountMessage);
-        await _pvAccountMessageDbContext.SaveChangesAsync();
+        _appDbContext.PVAccountMessage.Add(pvAccountMessage);
+        await _appDbContext.SaveChangesAsync();
         return pvAccountMessage;
     }
 
     public async Task<List<PVAccountMessage>> FindAll()
     {
-        return await _pvAccountMessageDbContext.PvAccountMessage.ToListAsync();
+        return await _appDbContext.PVAccountMessage.ToListAsync();
     }
 
     public async Task<PVAccountMessage> FindOne(int PVID, int AccountID, int MessageID)
     {
-        return await _pvAccountMessageDbContext.PvAccountMessage.FindAsync(PVID, AccountID, MessageID);
+        return await _appDbContext.PVAccountMessage.FindAsync(PVID, AccountID, MessageID);
     }
 
     public async Task<PVAccountMessage> Update(PVAccountMessage updatedPVAccountMessage)
     {
-        _pvAccountMessageDbContext.PvAccountMessage.Update(updatedPVAccountMessage);
-        await _pvAccountMessageDbContext.SaveChangesAsync();
+        _appDbContext.PVAccountMessage.Update(updatedPVAccountMessage);
+        await _appDbContext.SaveChangesAsync();
         return updatedPVAccountMessage;
     }
 }

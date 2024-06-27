@@ -1,37 +1,38 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  GroupAccountMessage;
 
 public class GroupAccountMessageService
 {
-    private readonly GroupAccountMessageDbContext _groupAccountMessageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public GroupAccountMessageService(GroupAccountMessageDbContext groupAccountMessageDbContext)
+    public GroupAccountMessageService(AppDbContext appDbContext)
     {
-        _groupAccountMessageDbContext = groupAccountMessageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<GroupAccountMessage> Create(GroupAccountMessage groupAccountMessage)
     {
-        _groupAccountMessageDbContext.GroupAccountMessage.Add(groupAccountMessage);
-        await _groupAccountMessageDbContext.SaveChangesAsync();
+        _appDbContext.GroupAccountMessage.Add(groupAccountMessage);
+        await _appDbContext.SaveChangesAsync();
         return groupAccountMessage;
     }
 
     public async Task<List<GroupAccountMessage>> FindAll()
     {
-        return await _groupAccountMessageDbContext.GroupAccountMessage.ToListAsync();
+        return await _appDbContext.GroupAccountMessage.ToListAsync();
     }
 
     public async Task<GroupAccountMessage> FindOne(int GroupID, int AccountID, int MessageID)
     {
-        return await _groupAccountMessageDbContext.GroupAccountMessage.FindAsync(GroupID, AccountID, MessageID);
+        return await _appDbContext.GroupAccountMessage.FindAsync(GroupID, AccountID, MessageID);
     }
 
     public async Task<GroupAccountMessage> Update(GroupAccountMessage updatedGroupAccountMEssage)
     {
-        _groupAccountMessageDbContext.GroupAccountMessage.Update(updatedGroupAccountMEssage);
-        await _groupAccountMessageDbContext.SaveChangesAsync();
+        _appDbContext.GroupAccountMessage.Update(updatedGroupAccountMEssage);
+        await _appDbContext.SaveChangesAsync();
         return updatedGroupAccountMEssage;
     }
 

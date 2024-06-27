@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using messenger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -10,42 +11,42 @@ namespace User;
 
 public class UserService
 {
-    private readonly UserDbContext _userDbContext;
+    private readonly AppDbContext _appDbContext;
     private readonly IConfiguration _config;
 
-    public UserService(UserDbContext userDbContext, IConfiguration config)
+    public UserService(AppDbContext appDbContext, IConfiguration config)
     {
-        _userDbContext = userDbContext;
+        _appDbContext = appDbContext;
         _config = config;
     }
 
     public async Task<User> Create(User user)
     {
-        _userDbContext.User.Add(user);
-        await _userDbContext.SaveChangesAsync();
+        _appDbContext.User.Add(user);
+        await _appDbContext.SaveChangesAsync();
         return user;
     }
 
     public async Task<List<User>> FindAll()
     {
-        return await _userDbContext.User.ToListAsync();
+        return await _appDbContext.User.ToListAsync();
     }
 
     public async Task<User> FindOne(int ID)
     {
-        return await _userDbContext.User.FindAsync(ID);
+        return await _appDbContext.User.FindAsync(ID);
     }
 
     public async Task<User> Update(User updateUser)
     {
-        _userDbContext.User.Update(updateUser);
-        await _userDbContext.SaveChangesAsync();
+        _appDbContext.User.Update(updateUser);
+        await _appDbContext.SaveChangesAsync();
         return updateUser;
     }
 
     public async Task<string> Login(string username, string password)
     {
-        var user = _userDbContext.User.FromSqlInterpolated($"SELECT * FROM [User] WHERE Username = {username}")
+        var user = _appDbContext.User.FromSqlInterpolated($"SELECT * FROM [User] WHERE Username = {username}")
             .AsEnumerable().FirstOrDefault();
         if (user != null)
         {

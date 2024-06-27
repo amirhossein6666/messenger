@@ -1,37 +1,38 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  Notification;
 
 public class NotificationService
 {
-    private readonly NotificationDbContext _notificationDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public NotificationService(NotificationDbContext notificationDbContext)
+    public NotificationService(AppDbContext appDbContext)
     {
-        _notificationDbContext = notificationDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<Notification> Create(Notification notification)
     {
-        _notificationDbContext.Notification.Add(notification);
-        await _notificationDbContext.SaveChangesAsync();
+        _appDbContext.Notification.Add(notification);
+        await _appDbContext.SaveChangesAsync();
         return notification;
     }
 
     public async Task<List<Notification>> FindAll()
     {
-        return await _notificationDbContext.Notification.ToListAsync();
+        return await _appDbContext.Notification.ToListAsync();
     }
 
     public async Task<Notification> FindOne(int ID)
     {
-        return await _notificationDbContext.Notification.FindAsync(ID);
+        return await _appDbContext.Notification.FindAsync(ID);
     }
 
     public async Task<Notification> Update(Notification updatedNotification)
     {
-        _notificationDbContext.Notification.Update(updatedNotification);
-        await _notificationDbContext.SaveChangesAsync();
+        _appDbContext.Notification.Update(updatedNotification);
+        await _appDbContext.SaveChangesAsync();
         return updatedNotification;
     }
 }

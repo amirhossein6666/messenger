@@ -1,38 +1,39 @@
 
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  AccountPV;
 
 public class AccountPVService
 {
-    private readonly AccountPVDbContext _accountPvDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public AccountPVService(AccountPVDbContext accountPVDbContext)
+    public AccountPVService(AppDbContext appDbContext)
     {
-        _accountPvDbContext = accountPVDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<AccountPV> Create(AccountPV accountPV)
     {
-        _accountPvDbContext.AccountPV.Add(accountPV);
-        await _accountPvDbContext.SaveChangesAsync();
+        _appDbContext.AccountPV.Add(accountPV);
+        await _appDbContext.SaveChangesAsync();
         return accountPV;
     }
 
     public async Task<List<AccountPV>> FindAll()
     {
-        return await _accountPvDbContext.AccountPV.ToListAsync();
+        return await _appDbContext.AccountPV.ToListAsync();
     }
 
     public async Task<AccountPV> FindOne(int AccountID, int PVID)
     {
-        return await _accountPvDbContext.AccountPV.FindAsync(AccountID, PVID);
+        return await _appDbContext.AccountPV.FindAsync(AccountID, PVID);
     }
 
     public async Task<AccountPV> Update(AccountPV updatedaccountPV)
     {
-        _accountPvDbContext.AccountPV.Update(updatedaccountPV);
-        await _accountPvDbContext.SaveChangesAsync();
+        _appDbContext.AccountPV.Update(updatedaccountPV);
+        await _appDbContext.SaveChangesAsync();
         return updatedaccountPV;
     }
 }

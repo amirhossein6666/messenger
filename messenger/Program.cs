@@ -64,22 +64,6 @@ builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<PVAccountMessageService>();
 builder.Services.AddScoped<UserService>();
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
-builder.Services.AddDbContext<ChannelDbContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDbContext<AccountDbContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDbContext<AccountChannelDbContext>();
-builder.Services.AddDbContext<AccountContactDbContext>();
-builder.Services.AddDbContext<AccountGroupDbContext>();
-builder.Services.AddDbContext<GroupDbContext>();
-builder.Services.AddDbContext<MessageDbContext>();
-builder.Services.AddDbContext<AccountPVDbContext>();
-builder.Services.AddDbContext<PVDbContext>();
-builder.Services.AddDbContext<ChannelAccountMessageDbContext>();
-builder.Services.AddDbContext<ChannelMessageDbContext>();
-builder.Services.AddDbContext<GroupAccountMessageDbContext>();
-builder.Services.AddDbContext<GroupMessageDbContext>();
-builder.Services.AddDbContext<NotificationDbContext>();
-builder.Services.AddDbContext<PVAccountMessageDbContext>();
-builder.Services.AddDbContext<UserDbContext>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

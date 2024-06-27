@@ -1,37 +1,38 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  Message;
 
 public class MessageService
 {
-    private readonly MessageDbContext _messageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public MessageService(MessageDbContext messageDbContext)
+    public MessageService(AppDbContext appDbContext)
     {
-        _messageDbContext = messageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<Message> Create(Message message)
     {
-        _messageDbContext.Message.Add(message);
-        await _messageDbContext.SaveChangesAsync();
+        _appDbContext.Message.Add(message);
+        await _appDbContext.SaveChangesAsync();
         return message;
     }
 
     public async Task<List<Message>> FindAll()
     {
-        return await _messageDbContext.Message.ToListAsync();
+        return await _appDbContext.Message.ToListAsync();
     }
 
     public async Task<Message> FindOne(int ID)
     {
-        return await _messageDbContext.Message.FindAsync(ID);
+        return await _appDbContext.Message.FindAsync(ID);
     }
 
     public async Task<Message> Update(Message updatedMessage)
     {
-        _messageDbContext.Message.Update(updatedMessage);
-        await _messageDbContext.SaveChangesAsync();
+        _appDbContext.Message.Update(updatedMessage);
+        await _appDbContext.SaveChangesAsync();
         return updatedMessage;
     }
 }

@@ -1,31 +1,32 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  GroupMessage;
 
 public class GroupMessageService
 {
-    private readonly GroupMessageDbContext _groupMessageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public GroupMessageService(GroupMessageDbContext groupMessageDbContext)
+    public GroupMessageService(AppDbContext appDbContext)
     {
-        _groupMessageDbContext = groupMessageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<GroupMessage> Create(GroupMessage groupMessage)
     {
-        _groupMessageDbContext.GroupMessage.Add(groupMessage);
-        await _groupMessageDbContext.SaveChangesAsync();
+        _appDbContext.GroupMessage.Add(groupMessage);
+        await _appDbContext.SaveChangesAsync();
         return groupMessage;
     }
 
     public async Task<List<GroupMessage>> FindAll()
     {
-        return await _groupMessageDbContext.GroupMessage.ToListAsync();
+        return await _appDbContext.GroupMessage.ToListAsync();
     }
 
     public async Task<GroupMessage> FindOne(int GroupID, int MessageID)
     {
-        return await _groupMessageDbContext.GroupMessage.FindAsync(GroupID, MessageID);
+        return await _appDbContext.GroupMessage.FindAsync(GroupID, MessageID);
     }
 
 }

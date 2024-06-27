@@ -1,3 +1,4 @@
+using messenger;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,34 +6,34 @@ namespace  ChannelAccountMessage;
 
 public class ChannelAccountMessageService
 {
-    private readonly ChannelAccountMessageDbContext _channelAccountMessageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public ChannelAccountMessageService(ChannelAccountMessageDbContext channelAccountMessageDbContext)
+    public ChannelAccountMessageService(AppDbContext appDbContext)
     {
-        _channelAccountMessageDbContext = channelAccountMessageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<ChannelAccountMessage> Create(ChannelAccountMessage channelAccountMessage)
     {
-        _channelAccountMessageDbContext.ChannelAccountMessage.Add(channelAccountMessage);
-        await _channelAccountMessageDbContext.SaveChangesAsync();
+        _appDbContext.ChannelAccountMessage.Add(channelAccountMessage);
+        await _appDbContext.SaveChangesAsync();
         return channelAccountMessage;
     }
 
     public async Task<List<ChannelAccountMessage>> FindAll()
     {
-        return await _channelAccountMessageDbContext.ChannelAccountMessage.ToListAsync();
+        return await _appDbContext.ChannelAccountMessage.ToListAsync();
     }
 
     public async Task<ChannelAccountMessage> FindOne(int ChannelID, int AccountID, int MessageID)
     {
-        return await _channelAccountMessageDbContext.ChannelAccountMessage.FindAsync(ChannelID, AccountID, MessageID);
+        return await _appDbContext.ChannelAccountMessage.FindAsync(ChannelID, AccountID, MessageID);
     }
 
     public async Task<ChannelAccountMessage> Update(ChannelAccountMessage updatedChannelAccountMessage)
     {
-        _channelAccountMessageDbContext.ChannelAccountMessage.Update(updatedChannelAccountMessage);
-        await _channelAccountMessageDbContext.SaveChangesAsync();
+        _appDbContext.ChannelAccountMessage.Update(updatedChannelAccountMessage);
+        await _appDbContext.SaveChangesAsync();
         return updatedChannelAccountMessage;
     }
 }

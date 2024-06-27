@@ -1,30 +1,31 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
 namespace  ChannelMessage;
 
 public class ChannelMessageService
 {
-    private readonly ChannelMessageDbContext _channelMessageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public ChannelMessageService(ChannelMessageDbContext channelMessageDbContext)
+    public ChannelMessageService(AppDbContext appDbContext)
     {
-        _channelMessageDbContext = channelMessageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<ChannelMessage> Create(ChannelMessage channelMessage)
     {
-        _channelMessageDbContext.ChannelMessage.Add(channelMessage);
-        await _channelMessageDbContext.SaveChangesAsync();
+        _appDbContext.ChannelMessage.Add(channelMessage);
+        await _appDbContext.SaveChangesAsync();
         return channelMessage;
     }
 
     public async Task<List<ChannelMessage>> FindAll()
     {
-        return await _channelMessageDbContext.ChannelMessage.ToListAsync();
+        return await _appDbContext.ChannelMessage.ToListAsync();
     }
 
     public async Task<ChannelMessage> FindOne(int ChannelID, int MessageID)
     {
-        return await _channelMessageDbContext.ChannelMessage.FindAsync(ChannelID, MessageID);
+        return await _appDbContext.ChannelMessage.FindAsync(ChannelID, MessageID);
     }
 }

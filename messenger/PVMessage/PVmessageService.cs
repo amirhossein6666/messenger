@@ -4,27 +4,27 @@ namespace messenger.PVMessage;
 
 public class PVmessageService
 {
-    private readonly PVMessageDbContext _pvMessageDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public PVmessageService(PVMessageDbContext pvMessageDbContext)
+    public PVmessageService(AppDbContext appDbContext)
     {
-        _pvMessageDbContext = pvMessageDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<PVMessage> Create(PVMessage pvMessage)
     {
-        _pvMessageDbContext.PVMessages.Add(pvMessage);
-        await _pvMessageDbContext.SaveChangesAsync();
+        _appDbContext.PVMessage.Add(pvMessage);
+        await _appDbContext.SaveChangesAsync();
         return pvMessage;
     }
 
     public async Task<List<PVMessage>> FindAll()
     {
-        return await _pvMessageDbContext.PVMessages.ToListAsync();
+        return await _appDbContext.PVMessage.ToListAsync();
     }
 
     public async Task<PVMessage> FindOne(int PVID, int MessageID)
     {
-        return await _pvMessageDbContext.PVMessages.FindAsync(PVID, MessageID);
+        return await _appDbContext.PVMessage.FindAsync(PVID, MessageID);
     }
 }
