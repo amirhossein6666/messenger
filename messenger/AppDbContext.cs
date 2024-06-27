@@ -19,6 +19,8 @@ public class AppDbContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        // set up  relation between Account and its contacts
         modelBuilder.Entity<AccountContact.AccountContact>()
             .HasKey(e => new { e.AccountID, e.ContactID });
 
@@ -32,7 +34,19 @@ public class AppDbContext: DbContext
             .WithMany(s => s.ContactedBy)
             .HasForeignKey(e => e.ContactID);
 
-        modelBuilder.Entity<AccountChannel.AccountChannel>().HasKey(e => new { e.AccountID, e.ChannelID });
+        // determine keys of AccountChannel
+        modelBuilder.Entity<AccountChannel.AccountChannel>()
+            .HasKey(e => new { e.AccountID, e.ChannelID });
+
+        // determine keys of AccountGroup
+        modelBuilder.Entity<AccountGroup.AccountGroup>()
+            .HasKey(e => new { e.AccountID, e.GroupID });
+
+        // determine keys of AccountPV
+        modelBuilder.Entity<AccountPV.AccountPV>()
+            .HasKey(e => new { e.AccountID, e.PVID });
+
+
     }
 
 
