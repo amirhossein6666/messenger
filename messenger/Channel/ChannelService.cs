@@ -1,37 +1,39 @@
-namespace messenger.Channel;
+using messenger;
+
+namespace  Channel;
 
 using Microsoft.EntityFrameworkCore;
 
 public class ChannelService
 {
-    private readonly ChannelDbContext _channelDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public ChannelService(ChannelDbContext channelDbContext)
+    public ChannelService(AppDbContext appDbContext)
     {
-        _channelDbContext = channelDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<Channel> Create(Channel channel)
     {
-        _channelDbContext.Channel.Add(channel);
-        await _channelDbContext.SaveChangesAsync();
+        _appDbContext.Channels.Add(channel);
+        await _appDbContext.SaveChangesAsync();
         return channel;
     }
 
     public async Task<List<Channel>> FindAll()
     {
-        return await _channelDbContext.Channel.ToListAsync();
+        return await _appDbContext.Channels.ToListAsync();
     }
 
     public async Task<Channel> FindOne(int ID)
     {
-        return await _channelDbContext.Channel.FindAsync(ID);
+        return await _appDbContext.Channels.FindAsync(ID);
     }
 
     public async Task<Channel> Update(Channel updatedChannel)
     {
-        _channelDbContext.Channel.Update(updatedChannel);
-        await _channelDbContext.SaveChangesAsync();
+        _appDbContext.Channels.Update(updatedChannel);
+        await _appDbContext.SaveChangesAsync();
         return updatedChannel;
     }
 }

@@ -1,6 +1,8 @@
+using Account;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
-namespace messenger.Channel;
+namespace  Channel;
 
 [Route("[controller]")]
 [ApiController]
@@ -13,6 +15,7 @@ public class ChannelController : ControllerBase
         _channelService = channelService;
     }
     [HttpPost]
+    [SwaggerRequestExample(typeof(Channel), typeof(ChannelExamples))]
     public async Task<Channel> Create(Channel account)
     {
         return await _channelService.Create(account);

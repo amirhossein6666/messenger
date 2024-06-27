@@ -1,37 +1,38 @@
+using messenger;
 using Microsoft.EntityFrameworkCore;
 
-namespace messenger.AccountChannel;
+namespace  AccountChannel;
 
 public class AccountChannelService
 {
-    private readonly AccountChannleDbContext _accountChannelDbContext;
+    private readonly AppDbContext _appDbContext;
 
-    public AccountChannelService(AccountChannleDbContext accountChannleDbContext)
+    public AccountChannelService(AppDbContext appDbContext)
     {
-        _accountChannelDbContext = accountChannleDbContext;
+        _appDbContext = appDbContext;
     }
 
     public async Task<AccountChannel> Create(AccountChannel accountChannel)
     {
-        _accountChannelDbContext.AccountChannel.Add(accountChannel);
-        await _accountChannelDbContext.SaveChangesAsync();
+        _appDbContext.AccountChannels.Add(accountChannel);
+        await _appDbContext.SaveChangesAsync();
         return accountChannel;
     }
 
     public async Task<List<AccountChannel>> FindAll()
     {
-        return await _accountChannelDbContext.AccountChannel.ToListAsync();
+        return await _appDbContext.AccountChannels.ToListAsync();
     }
 
     public async Task<AccountChannel> FindOne(int AccountID, int ChannelID)
     {
-        return await _accountChannelDbContext.AccountChannel.FindAsync(AccountID, ChannelID);
+        return await _appDbContext.AccountChannels.FindAsync(AccountID, ChannelID);
     }
 
     public async Task<AccountChannel> Update(AccountChannel updatedAccountChannel)
     {
-        _accountChannelDbContext.AccountChannel.Update(updatedAccountChannel);
-        await _accountChannelDbContext.SaveChangesAsync();
+        _appDbContext.AccountChannels.Update(updatedAccountChannel);
+        await _appDbContext.SaveChangesAsync();
         return updatedAccountChannel;
     }
 }
