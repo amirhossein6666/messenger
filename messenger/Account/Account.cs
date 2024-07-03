@@ -8,7 +8,10 @@ public class Account
     public string name { get; set; }
     public string accountID { get; set; }
     public string? profile { get; set; }
+
     public int userID { get; set; }
+    public User.User User { get; set; }
+
     public bool? isOnline { get; set; }
     public DateTime lastSeen { get; set; }
 
