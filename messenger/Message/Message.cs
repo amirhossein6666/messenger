@@ -10,7 +10,7 @@ public class Message
     public int senderID { get; set; }
     public bool isUpdated { get; set; }
     public DateTime? updateDate { get; set; } = DateTime.Now;
-    public int ReplyOF { get; set; }
+    public int? ReplyOF { get; set; }
 
     public ICollection<ChannelAccountMessage.ChannelAccountMessage> ChannelAccountMessages { get; set; }
 
