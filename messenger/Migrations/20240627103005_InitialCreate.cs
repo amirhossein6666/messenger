@@ -110,13 +110,13 @@ namespace messenger.Migrations
                         column: x => x.AccountID,
                         principalTable: "Accounts",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AccountContacts_Accounts_ContactID",
                         column: x => x.ContactID,
                         principalTable: "Accounts",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -140,29 +140,6 @@ namespace messenger.Migrations
                         principalColumn: "ID");
                 });
 
-            migrationBuilder.CreateTable(
-                name: "AccountChannel",
-                columns: table => new
-                {
-                    ChannelsID = table.Column<int>(type: "int", nullable: false),
-                    membersID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AccountChannel", x => new { x.ChannelsID, x.membersID });
-                    table.ForeignKey(
-                        name: "FK_AccountChannel_Accounts_membersID",
-                        column: x => x.membersID,
-                        principalTable: "Accounts",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AccountChannel_Channels_ChannelsID",
-                        column: x => x.ChannelsID,
-                        principalTable: "Channels",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
 
             migrationBuilder.CreateTable(
                 name: "AccountChannels",
@@ -189,29 +166,6 @@ namespace messenger.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "AccountGroup",
-                columns: table => new
-                {
-                    GroupsID = table.Column<int>(type: "int", nullable: false),
-                    membersID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AccountGroup", x => new { x.GroupsID, x.membersID });
-                    table.ForeignKey(
-                        name: "FK_AccountGroup_Accounts_membersID",
-                        column: x => x.membersID,
-                        principalTable: "Accounts",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AccountGroup_Groups_GroupsID",
-                        column: x => x.GroupsID,
-                        principalTable: "Groups",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
 
             migrationBuilder.CreateTable(
                 name: "AccountGroups",

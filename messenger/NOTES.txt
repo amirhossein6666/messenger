@@ -1,0 +1,2 @@
+add Navigation properties to models => Done
+create a trigger in database to delete a row in AccountContacts that refrence a deleting Account

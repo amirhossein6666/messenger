@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using messenger;
 
@@ -11,9 +12,11 @@ using messenger;
 namespace messenger.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240703070111_removeRedundantTable")]
+    partial class removeRedundantTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,8 +54,6 @@ namespace messenger.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("userID");
 
                     b.ToTable("Accounts");
                 });
@@ -317,7 +318,7 @@ namespace messenger.Migrations
                     b.Property<int?>("GroupID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReplyOF")
+                    b.Property<int>("ReplyOF")
                         .HasColumnType("int");
 
                     b.Property<bool>("isUpdated")
@@ -341,8 +342,6 @@ namespace messenger.Migrations
                     b.HasIndex("ChannelID");
 
                     b.HasIndex("GroupID");
-
-                    b.HasIndex("senderID");
 
                     b.ToTable("Messages");
                 });
@@ -377,8 +376,6 @@ namespace messenger.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AccountID");
-
                     b.ToTable("Notifications");
                 });
 
@@ -405,10 +402,6 @@ namespace messenger.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("AccountID");
-
-                    b.HasIndex("personOneID");
-
-                    b.HasIndex("personTwoID");
 
                     b.ToTable("PVs");
                 });
@@ -480,17 +473,6 @@ namespace messenger.Migrations
                     b.HasIndex("MessageID");
 
                     b.ToTable("PVMessages");
-                });
-
-            modelBuilder.Entity("Account.Account", b =>
-                {
-                    b.HasOne("User.User", "User")
-                        .WithMany("Accounts")
-                        .HasForeignKey("userID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AccountChannel", b =>
@@ -700,25 +682,6 @@ namespace messenger.Migrations
                     b.HasOne("Group.Group", null)
                         .WithMany("Messages")
                         .HasForeignKey("GroupID");
-
-                    b.HasOne("Account.Account", "Sender")
-                        .WithMany()
-                        .HasForeignKey("senderID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Sender");
-                });
-
-            modelBuilder.Entity("Notification.Notification", b =>
-                {
-                    b.HasOne("Account.Account", "Account")
-                        .WithMany("Notifications")
-                        .HasForeignKey("AccountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("PV.PV", b =>
@@ -726,22 +689,6 @@ namespace messenger.Migrations
                     b.HasOne("Account.Account", null)
                         .WithMany("Pvs")
                         .HasForeignKey("AccountID");
-
-                    b.HasOne("Account.Account", "personOneAccount")
-                        .WithMany()
-                        .HasForeignKey("personOneID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Account.Account", "personTwoAccount")
-                        .WithMany()
-                        .HasForeignKey("personTwoID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("personOneAccount");
-
-                    b.Navigation("personTwoAccount");
                 });
 
             modelBuilder.Entity("PVAccountMessage.PVAccountMessage", b =>
@@ -806,8 +753,6 @@ namespace messenger.Migrations
 
                     b.Navigation("GroupAccountMessages");
 
-                    b.Navigation("Notifications");
-
                     b.Navigation("PvAccountMessages");
 
                     b.Navigation("Pvs");
@@ -857,11 +802,6 @@ namespace messenger.Migrations
                     b.Navigation("PvAccountMessages");
 
                     b.Navigation("PvMessages");
-                });
-
-            modelBuilder.Entity("User.User", b =>
-                {
-                    b.Navigation("Accounts");
                 });
 #pragma warning restore 612, 618
         }
