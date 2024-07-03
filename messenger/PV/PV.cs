@@ -5,8 +5,14 @@ namespace  PV;
 public class PV
 {
     public int? ID { get; set; }
+
     public int personOneID { get; set; }
+    public Account.Account personOneAccount { get; set; }
+
     public int personTwoID { get; set; }
+    public Account.Account personTwoAccount { get; set; }
+
+
     public int messagesNumber { get; set; } = 0;
 
     public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }

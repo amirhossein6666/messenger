@@ -71,7 +71,24 @@ public class AppDbContext: DbContext
         modelBuilder.Entity<PVMessage.PVMessage>()
             .HasKey(e => new { e.PVID, e.MessageID });
 
+        // set up  relation between message and its Account sender
+        modelBuilder.Entity<Message.Message>()
+            .HasOne(m => m.Sender)
+            .WithMany()
+            .HasForeignKey(m => m.senderID)
+            .OnDelete(DeleteBehavior.Restrict);
 
+        // set up  relation between pv and its participants
+        modelBuilder.Entity<PV.PV>()
+            .HasOne(m => m.personOneAccount)
+            .WithMany()
+            .HasForeignKey(m => m.personOneID)
+            .OnDelete(DeleteBehavior.Restrict);
+        modelBuilder.Entity<PV.PV>()
+            .HasOne(m => m.personTwoAccount)
+            .WithMany()
+            .HasForeignKey(m => m.personTwoID)
+            .OnDelete(DeleteBehavior.Restrict);
 
     }
 
