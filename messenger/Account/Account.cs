@@ -12,6 +12,7 @@ public class Account
     public bool? isOnline { get; set; }
     public DateTime lastSeen { get; set; }
 
+    // start of configuring many-to-many relationship
     public ICollection<AccountPV.AccountPV> AccountPvs { get; set; }
     public ICollection<PV.PV> Pvs { get; set; }
 
@@ -30,5 +31,7 @@ public class Account
     public ICollection<GroupAccountMessage.GroupAccountMessage> GroupAccountMessages { get; set; }
 
     public ICollection<PVAccountMessage.PVAccountMessage> PvAccountMessages { get; set; }
-
+    // end of configuring many-to-many relationship
+    // start of configuring one-to-many relationship
+    public ICollection<Notification.Notification> Notifications { get; set; }
 }
